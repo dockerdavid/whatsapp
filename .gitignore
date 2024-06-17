@@ -1,0 +1,8 @@
+# Air folder build
+tmp/
+
+# Database
+client.db
+
+# Byte-compiled / optimized / DLL files
+main
