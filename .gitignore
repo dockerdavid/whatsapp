@@ -6,3 +6,6 @@ client.db
 
 # Byte-compiled / optimized / DLL files
 main
+
+# Environment variables
+.env

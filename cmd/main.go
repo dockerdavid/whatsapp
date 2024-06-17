@@ -7,6 +7,7 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
+	_ "github.com/joho/godotenv/autoload"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -20,5 +21,5 @@ func main() {
 
 	client.InitClient()
 
-	log.Fatal(server.Run(":8080"))
+	log.Fatal(server.Run())
 }

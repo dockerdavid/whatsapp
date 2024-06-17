@@ -22,7 +22,7 @@ func HandleSendMessage(c *gin.Context) {
 		return
 	}
 
-	if client.Client.IsConnected() {
+	if client.Client != nil && client.Client.IsConnected() {
 
 		targetJID := types.JID{
 			User:   message.To,
