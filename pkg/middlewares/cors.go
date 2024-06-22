@@ -1,27 +1,18 @@
 package middlewares
 
 import (
-	"time"
+	"net/http"
 
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
+	"github.com/go-chi/cors"
 )
 
-type CORSMiddleware struct {
-}
-
-func (c *CORSMiddleware) corsMiddleware(e *gin.Engine) {
-	e.Use(cors.New(cors.Config{
-		AllowAllOrigins:  true,
-		AllowMethods:     []string{"OPTIONS", "GET", "POST"},
-		AllowHeaders:     []string{"*"},
-		ExposeHeaders:    []string{"Content-Length"},
-		AllowCredentials: true,
-		MaxAge:           12 * time.Hour,
-	}))
-}
-
-func CorsMiddleware(e *gin.Engine) {
-	c := new(CORSMiddleware)
-	c.corsMiddleware(e)
+func CorsMiddleware() func(next http.Handler) http.Handler {
+	return cors.Handler(cors.Options{
+		AllowedOrigins:   []string{"https://*", "http://*"},
+		AllowedMethods:   []string{"GET", "POST", "OPTIONS"},
+		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
+		ExposedHeaders:   []string{"Link"},
+		AllowCredentials: false,
+		MaxAge:           300, // Maximum value not ignored by any of major browsers
+	})
 }
