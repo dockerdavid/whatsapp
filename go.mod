@@ -5,7 +5,7 @@ go 1.22.1
 require (
 	github.com/mattn/go-sqlite3 v1.14.22
 	github.com/mdp/qrterminal v1.0.1
-	go.mau.fi/whatsmeow v0.0.0-20240603101645-64bc969fbe78
+	go.mau.fi/whatsmeow v0.0.0-20240619210240-329c2336a6f1
 )
 
 require github.com/go-chi/cors v1.2.1
