@@ -1,0 +1,9 @@
+{
+  "entrypoint": "go",
+  "build": {
+    "cmd": "go build -o app ./cmd"
+  },
+  "start": {
+    "cmd": "./app"
+  }
+}
